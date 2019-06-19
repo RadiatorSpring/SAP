@@ -8,8 +8,19 @@ import javax.naming.spi.DirStateFactory.Result;
 
 public class Calculator {
 
-	
 
+	public static void main(String... args) {
+		Scanner scanner = new Scanner(System.in);
+		String text = scanner.nextLine();
+		Calculator calculator = new Calculator();
+		List<String> operations = calculator.findOperations(text);
+		List<Double> arguments = calculator.findArguments(text);
+		double result = calculator.compute(operations, arguments);
+		System.out.println(result);
+		scanner.close();
+
+		// TODO put in github
+	}
 	protected List<String> findOperations(String text) {
 		Pattern patternForOperations = Pattern.compile("[+/*-]");
 		Matcher matcherForOperations = patternForOperations.matcher(text);
