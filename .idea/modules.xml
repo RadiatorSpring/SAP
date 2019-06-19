@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/calculator2.iml" filepath="$PROJECT_DIR$/calculator2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dateUtils.iml" filepath="$PROJECT_DIR$/dateUtils.iml" />
     </modules>
   </component>
 </project>

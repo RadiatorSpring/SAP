@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="calculator2" />
+        <module name="dateUtils" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="calculator2" target="1.8" />
+      <module name="dateUtils" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

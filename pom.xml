@@ -34,12 +34,26 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.8.1</version>
+			<type>maven-plugin</type>
+		</dependency>
 	</dependencies>
+
 
 	<build>
 		<finalName>dateutils</finalName>
 
-
+		<resources>
+			<resource>
+				<directory>C:\Users\i516445\git\SAP</directory>
+				<includes>
+					<include>C:\Users\i516445\git\SAP\src\main\java\calculator2\Calculator.java</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -87,6 +101,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.2</version>
 				<configuration>
 				  <excludes>
 					<exclude>**/log4j.properties</exclude>
