@@ -6,14 +6,14 @@ import java.util.regex.Pattern;
 
 import javax.naming.spi.DirStateFactory.Result;
 
-public class Calculator {
+class Calculator {
 
 
 
 	protected List<String> findOperations(String text) {
 		Pattern patternForOperations = Pattern.compile("[+/*-]");
 		Matcher matcherForOperations = patternForOperations.matcher(text);
-		List<String> operations = new ArrayList<String>();
+		List<String> operations = new ArrayList<>();
 
 		while (matcherForOperations.find()) {
 			String operation = matcherForOperations.group();
@@ -38,35 +38,33 @@ public class Calculator {
 
 	protected double compute(List<String> operations, List<Double> arguments) {
 		double result = 0;
-		int i = 0;
-		if (operations.get(i).equals("+")) {
-			result = arguments.get(i) + arguments.get(i + 1);
-		} else if (operations.get(i).equals("*")) {
-			result = arguments.get(i) * arguments.get(i + 1);
-		} else if (operations.get(i).equals("/")) {
-			result = arguments.get(i) / arguments.get(i + 1);
-		} else if (operations.get(i).equals("-")) {
-			result = arguments.get(i) - arguments.get(i + 1);
-		}
-		for (int j = 2; j < arguments.size(); j++) {
-			if(operations.get(j-1).equals("+")) {
-				result+= arguments.get(j);
-			}
-			else if(operations.get(j-1).equals("*")) {
-				result*= arguments.get(j);
-			}
-			else if(operations.get(j-1).equals("/")) {
-				result/= arguments.get(j);
-			}
-			else if(operations.get(j-1).equals("-")) {
-				result-= arguments.get(j);
-			}
-		}
 		
+		for (int i = 0; i < arguments.size(); i++) {
+			if(i==0){
+				result += computeWithOperation(operations.get(i), arguments.get(i),arguments.get(i+i));
+			}
+			else{
+				result = computeWithOperation(operations.get(i),result,arguments.get(i));
+			}
+
+		}
 		return result;
 	}
-	
-	
+
+	private double computeWithOperation(String operation,double argument1, double argument2){
+		if (operation.equals("+")) {
+			return  argument1 + argument2;
+		} else if (operation.equals("*")) {
+			return  argument1 * argument2;
+		} else if (operation.equals("/")) {
+			return  argument1 / argument2;
+		} else if (operation.equals("-")) {
+			return  argument1 - argument2;
+		}
+		return 0;
+
+	}
+
 	
 }
 

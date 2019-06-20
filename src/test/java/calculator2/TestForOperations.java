@@ -29,6 +29,6 @@ public class TestForOperations {
 	public void testCalculatorFindingOperationsShouldReturnAdding() {
 		String testString = "1100+2";
 		Calculator calculator = new Calculator();
-		Assert.assertEquals(calculator.findOperations(testString).get(0),"/");
+		Assert.assertEquals(calculator.findOperations(testString).get(0),"+");
 	}
 }
